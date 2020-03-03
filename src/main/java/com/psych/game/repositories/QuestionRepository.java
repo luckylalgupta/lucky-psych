@@ -1,7 +1,6 @@
 package com.psych.game.repositories;
 
 import com.psych.game.model.GameMode;
-import com.psych.game.model.Player;
 import com.psych.game.model.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

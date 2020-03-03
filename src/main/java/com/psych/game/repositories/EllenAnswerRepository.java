@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EllenAnswerRepository extends JpaRepository<EllenAnswer,Long> {
-    @Query(value ="",nativeQuery = true)//todo
+    @Query(value ="select *from ellenanswers  order by RAND() LIMIT 1",nativeQuery = true)//todo
     EllenAnswer getRandomAnswer(Question question);
 }

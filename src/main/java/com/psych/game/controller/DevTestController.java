@@ -2,7 +2,7 @@ package com.psych.game.controller;
 
 import com.psych.game.model.*;
 import com.psych.game.repositories.*;
-import com.psych.game.repositories.ContentWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +28,7 @@ public class DevTestController {
     @Autowired
     private AdminRepository adminRepository;
     @Autowired
-    private ContentWriter contentWriterRepository;
+    private ContentWriterRepository contentWriterRepository;
 
     @GetMapping("/")
     public String Hello(){
