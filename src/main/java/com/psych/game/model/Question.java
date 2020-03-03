@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name="questions")
 public class Question extends Auditable {
     @NotNull @Getter @Setter
-    private String question;
+    private String questionText;
 
     @NotNull @Getter @Setter
     private String correctAnswer;
@@ -32,7 +32,7 @@ public class Question extends Auditable {
     }
 
     public Question(@NotNull String question,@NotNull String correctAnswer,@NotNull GameMode gameMode){
-        this.question=question;
+        this.questionText=question;
         this.correctAnswer=correctAnswer;
         this.gameMode= gameMode;
     }

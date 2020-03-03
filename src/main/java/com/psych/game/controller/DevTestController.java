@@ -1,10 +1,8 @@
 package com.psych.game.controller;
 
 import com.psych.game.model.*;
-import com.psych.game.repositories.GameRepository;
-import com.psych.game.repositories.PlayerRepository;
-import com.psych.game.repositories.QuestionRepository;
-import com.psych.game.repositories.UserRepository;
+import com.psych.game.repositories.*;
+import com.psych.game.repositories.ContentWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +23,12 @@ public class DevTestController {
     private GameRepository gameRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private RoundRepository roundRepository;
+    @Autowired
+    private AdminRepository adminRepository;
+    @Autowired
+    private ContentWriter contentWriterRepository;
 
     @GetMapping("/")
     public String Hello(){
@@ -64,8 +68,6 @@ public class DevTestController {
                 "Rio Poneglyph",
                 GameMode.IS_THIS_A_FACT
                 ));
-
-
         return "populated";
     }
 
@@ -103,5 +105,26 @@ public class DevTestController {
     @GetMapping("/game/{id}")
     public Game getGameById(@PathVariable(name = "id")Long id){
         return gameRepository.findById(id).orElseThrow();
+    }
+
+    @GetMapping("/rounds")
+    public List<Round> getAllRounds(){
+        return roundRepository.findAll();
+    }
+    @GetMapping("/round/{id}")
+    public Round getRoundById(@PathVariable(name = "id")Long id){
+        return roundRepository.findById(id).orElseThrow();
+    }
+    @GetMapping("/admin/{id}")
+    public Admin getAdminById(@PathVariable(name = "id")Long id){
+        return adminRepository.findById(id).orElseThrow();
+    }
+    @GetMapping("/contentwriters")
+    public List<ContentWriter> getAllContents(){
+        return contentWriterRepository.findAll();
+    }
+    @GetMapping("/contentwriter/{id}")
+    public ContentWriter getContentWriterById(@PathVariable(name = "id")Long id){
+        return contentWriterRepository.findById(id).orElseThrow();
     }
 }
